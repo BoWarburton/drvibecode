@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blackjack Web</title>
+</head>
+<body>
+    <h2>Your hand: {{ player_hand }} (value: {{ player_value }})</h2>
+    <h2>Dealer's hand: {{ dealer_hand }} (value: {{ dealer_value }})</h2>
+    {% if state == 'playing' %}
+        <form method="post">
+            <button name="action" value="hit">Hit</button>
+            <button name="action" value="stand">Stand</button>
+        </form>
+    {% else %}
+        <h3>{{ message }}</h3>
+        <a href="{{ url_for('start') }}">Play Again</a>
+        <a href="{{ url_for('reset') }}">Back to Home</a>
+    {% endif %}
+</body>
+</html>
